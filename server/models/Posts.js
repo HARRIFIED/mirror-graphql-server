@@ -20,7 +20,8 @@ const PostsSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    createdAt: String 
 }
 );
 
