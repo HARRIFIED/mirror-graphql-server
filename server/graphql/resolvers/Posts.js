@@ -89,6 +89,10 @@ module.exports = {
                 })
             }
 
+            pubsub.publish('NEW_LIKES', {
+                likeCounts: post
+            })
+
             await post.save();                                                                                                                         
             return post
         }
@@ -97,6 +101,9 @@ module.exports = {
         newPost: {
             // subscribe: (_, __, {pubsub}) => pubsub.asyncIterator('NEW_POSTS')
             subscribe: () => pubsub.asyncIterator('NEW_POSTS'),
+        },
+        likeCounts: {
+            subscribe: () => pubsub.asyncIterator('NEW_LIKES'),
         }
     }
 }
