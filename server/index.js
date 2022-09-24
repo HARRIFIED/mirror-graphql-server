@@ -24,18 +24,6 @@ const port = process.env.PORT || 5000;
 
 const pubsub = new PubSub();
 
-// const server = new ApolloServer({
-//     typeDefs,
-//     resolvers,
-//     context: ({ req }) => ({ req, pubsub }),
-// });
-
-// connectDB().then(() => {
-//     server.listen(PORT).then(res => {
-//         console.log(`Server listening on port ${res.url}`.cyan.underline)
-//     })
-// });
-
 async function startApolloServer() {
 
   const app = express();

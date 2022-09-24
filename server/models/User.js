@@ -4,7 +4,21 @@ const UserSchema = new Schema({
     username: String,
     password: String,
     email: String,
-    createdAt: String 
+    createdAt: String ,
+    following: [
+        {
+        
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    followers: [
+        {
+            
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 }
 );
 

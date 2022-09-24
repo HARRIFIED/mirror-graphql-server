@@ -4,7 +4,8 @@ const { UserInputError } = require('apollo-server');
 
 const User = require('../../models/User');
 const { RegisterValidation } = require('../../utils/validation');
-const { LoginValidation } = require('../../utils/validation')
+const { LoginValidation } = require('../../utils/validation');
+const checkAuth = require('../../utils/checkAuth');
 
 const generateToken = (user) => {
    return jwt.sign({
@@ -96,6 +97,29 @@ module.exports = {
                 id: res._id,
                 token
             }
+        },
+        async followUser(_, {userID}, context) {
+            const user = checkAuth(context);
+            const currentUser = await User.findById(user.id)
+            const userToFollow = await User.findById(userID);
+            if (!userToFollow) {
+                throw new UserInputError('User not found')
+            }
+
+
+            if (currentUser.following.find(id => id == userToFollow.id)) {
+                //already following user
+                currentUser.following = currentUser.following.filter(id => id + "" !== userToFollow.id)
+                userToFollow.followers = userToFollow.followers.filter(id => id + "" !== currentUser.id)
+                
+            } else {
+                // not following user at the moment
+                currentUser.following.unshift(userToFollow.id)
+                userToFollow.followers.unshift(currentUser.id)
+            }
+            await currentUser.save();
+            await userToFollow.save();
+            return currentUser
         }
     }
 }
