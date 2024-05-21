@@ -1,6 +1,6 @@
 # Mirror GraphQL Server
 
-Mirror GraphQL Server is a GraphQL API server that serves as a backend for a social network mobile application. This server is built using Node.js and Apollo Server to provide a flexible and efficient GraphQL interface for the Mirror app.
+Mirror GraphQL Server is a GraphQL API server that serves as a backend for a social network mobile application. This server is built using Node.js and Apollo Server to provide a flexible and efficient GraphQL interface for the app.
 
 ## Features
 
