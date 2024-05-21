@@ -13,7 +13,7 @@ Mirror GraphQL Server is a GraphQL API server that serves as a backend for a soc
 
 ## Installation
 
-To install Mirror GraphQL Server locally, follow these steps:
+To install GraphQL Server locally, follow these steps:
 
 1. Clone the repository:
 
