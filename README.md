@@ -64,10 +64,5 @@ Contributions to Mirror GraphQL Server are welcome! To contribute, follow these 
     ```bash
     git push origin feature/new-feature
     ```
-5. Create a pull request against the `main` branch of the original repository.
+5. Create a pull request against the `master` branch of the original repository.
 
-Please ensure that your contributions adhere to the [code of conduct](CODE_OF_CONDUCT.md).
-
-## License
-
-Mirror GraphQL Server is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
